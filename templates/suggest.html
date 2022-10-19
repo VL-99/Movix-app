@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suggest similar movies</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body background="static/images/bg_image.jpg" style="background-repeat:no-repeat; background-size:100% 100%; background-attachment:fixed">
+    <p style="font-size:50px"><strong><em>Movix</em></strong></p>
+
+    <nav class="navbar" style="background-color:#36454F">
+        <ul>
+            <li style="font-size:25px"><a href="/">Home</a></li>
+            <li style="font-size:25px"><a href="/suggest">Suggest</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="col-md-12">
+            <h1 style="margin-top:50px">Explore your favourite movies</h1>
+            <form action="/display_movies" method="post">
+                <input name="entry" type="text" class="form-control">
+                <input type="submit" class="btn btn-lg">
+            </form>
+        </div>
+
+
+        {% if data %}
+
+        {% for i in range(0,10) %}
+
+            <div style="margin-top:50px">
+                <div class="card">
+                    <div>
+
+                        <h3><strong><em>{{i+1}}. {{data[i]}}</em></strong></h3>
+
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+        {% else %}
+            <div class="col-md-3" style="margin-top:50px">
+                <div class="card">
+                    <div>
+
+                        <h3><strong><em>{{msg}}</em></strong></h3>
+
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+
+
+    </div>
+
+
+
+</body>
+</html>

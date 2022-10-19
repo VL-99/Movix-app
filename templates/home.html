@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movix</title>
+</head>
+<body background="static/images/bg_image.jpg" style="background-repeat:no-repeat; background-size:100% 100%; background-attachment:fixed">
+    <p style="font-size:50px" style="margin-bottom:0px"><strong><em>Movix</em></strong></p>
+    <h2><em>Welcome to Movix!</em></h2>
+    <p></p>
+    <nav class="navbar" style="background-color:#36454F">
+        <ul>
+            <li style="font-size:25px"><a href="/">Home</a></li>
+            <li style="font-size:25px"><a href="/suggest">Suggest</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="col-md-12">
+            <h1 style="margin-top:50px">50 Popular movies!</h1>
+        </div>
+    </div>
+
+    {% for i in range(0,50) %}
+        <div class="col-md-3" style="margin-top:50px">
+            <div class="card">
+                <div>
+                    <h2><strong><em>{{i+1}}. {{movie[i]}}</em></strong></h2>
+                    <h4>Rating- {{rating[i]}}</h4>
+                    <h4>Homepage: <a href="{{homepage[i]}}">{{homepage[i]}}</a></h4>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+</body>
+</html>
